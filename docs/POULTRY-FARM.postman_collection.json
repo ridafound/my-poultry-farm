@@ -1,0 +1,275 @@
+{
+  "info": {
+    "_postman_id": "f7c6e532-90e3-4ad0-b710-fc77e95a071f",
+    "name": "POULTRY-FARM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49114722",
+    "_collection_link": "https://go.postman.co/collection/49114722-f7c6e532-90e3-4ad0-b710-fc77e95a071f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Add Bird",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"quantity\":50\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base-url}}/bird/add",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "bird",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Bird History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base-url}}/bird/history",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "bird",
+            "history"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Eggs",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"quantity\":6\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base-url}}/egg/add",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "egg",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Egg History & Filter Date",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base-url}}/egg/history?start=2026-04-18&end=2026-04-29&page=1",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "egg",
+            "history"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-04-18"
+            },
+            {
+              "key": "end",
+              "value": "2026-04-29"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Sale",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"crates\": 2,\r\n    \"price\":4000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base-url}}/sale/create",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "sale",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Sales History & Filter",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base-url}}/sale/history?start=2026-04-20&end=2026-04-29&page=2",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "sale",
+            "history"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-04-20"
+            },
+            {
+              "key": "end",
+              "value": "2026-04-29"
+            },
+            {
+              "key": "page",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Expenses",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"amount\":1000,\r\n    \"purpose\":\"birds feeds\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base-url}}/expenses/add",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "expenses",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Expense History & Filter",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"amount\":1000,\r\n    \"purpose\":\"birds feeds\"\r\n}"
+        },
+        "url": {
+          "raw": "{{base-url}}/expenses/history?start=2026-04-20&end=2026-04-29&page=2",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "expenses",
+            "history"
+          ],
+          "query": [
+            {
+              "key": "start",
+              "value": "2026-04-20"
+            },
+            {
+              "key": "end",
+              "value": "2026-04-29"
+            },
+            {
+              "key": "page",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Dashboard Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base-url}}/dashboard",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "dashboard"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Inventory Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base-url}}/inventory",
+          "host": [
+            "{{base-url}}"
+          ],
+          "path": [
+            "inventory"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
