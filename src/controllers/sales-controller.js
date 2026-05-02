@@ -111,19 +111,22 @@ const getSalesHistory = async (req, res) => {
 
   res.status(StatusCodes.OK).json({
     success: true,
-    data: history,
-    summary: {
-      totalSales,
-      totalCrates,
-      totalExpense,
-      profit
-    },
-    pagination: {
-      page: Number(page),
-      limit,
-      totalCount,
-      totalPages: Math.ceil(totalCount / limit) || 1,
-    },
+    data: {
+      history,
+      summary: {
+        totalSales,
+        totalCrates,
+        totalExpense,
+        profit
+      },
+      pagination: {
+        page: Number(page),
+        limit,
+        totalCount,
+        totalPages: Math.ceil(totalCount / limit) || 1,
+      },
+    }
+
   });
 };
 

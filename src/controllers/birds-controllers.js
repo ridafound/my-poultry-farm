@@ -71,18 +71,20 @@ const getHistory = async (req, res) => {
     ]);
     const history = result[0]?.history || [];
     const total = result[0]?.count[0]?.total || 0;
-     const totalBirds = result[0]?.totalBirds[0]?.total || 0;
+    const totalBirds = result[0]?.totalBirds[0]?.total || 0;
 
     res.status(StatusCodes.OK).json({
         success: true,
-        data: history,
-        totalBirds,
-        pagination: {
-            page,
-            limit,
-            total,
-            totalPages: Math.ceil(total / limit) || 1,
-        },
+        data: {
+            history,
+            totalBirds,
+            pagination: {
+                page,
+                limit,
+                total,
+                totalPages: Math.ceil(total / limit) || 1,
+            },
+        }
     });
 };
 

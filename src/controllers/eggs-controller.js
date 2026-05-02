@@ -21,7 +21,7 @@ const addEggs = async (req, res) => {
   const stock = await Stock.findOneAndUpdate(
     {},
     { $inc: { totalEggs: quantityNum } },
-    { upsert: true,  returnDocument: "after" }
+    { upsert: true, returnDocument: "after" }
   );
 
   // 3. Calculate current crates for the response
@@ -87,7 +87,7 @@ const getHistory = async (req, res) => {
           { $sort: { createdAt: -1 } },
           { $skip: skip },
           { $limit: limit },
-             {
+          {
             $project: {
               quantity: 1,
               createdAt: 1,
@@ -127,16 +127,18 @@ const getHistory = async (req, res) => {
 
   res.status(StatusCodes.OK).json({
     success: true,
-    data: history,
-    pagination: {
-      page: Number(page),
-      limit,
-      totalDocuments,
-      totalPages: Math.ceil(totalDocuments / limit) || 1,
-    },
-    totalQuantity, // Total eggs ever recorded (filtered)
-    totalCrates,   // Total crates ever recorded (filtered)
-    looseEggs,     // The remainder
+    data: {
+      history,
+      pagination: {
+        page: Number(page),
+        limit,
+        totalDocuments,
+        totalPages: Math.ceil(totalDocuments / limit) || 1,
+      },
+      totalQuantity, // Total eggs ever recorded (filtered)
+      totalCrates,   // Total crates ever recorded (filtered)
+      looseEggs, // The remainder
+    }
   });
 };
 

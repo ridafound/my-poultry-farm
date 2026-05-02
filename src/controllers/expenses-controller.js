@@ -82,17 +82,18 @@ const getExpensesHistory = async (req, res) => {
 
   res.status(StatusCodes.OK).json({
     success: true,
-    data: history,
-    summary: {
+    data: {
+      history,
       totalAmount,
-      totalCount
-    },
-    pagination: {
+      totalCount,
+      pagination: {
       page: Number(page),
       limit,
       totalCount,
       totalPages: Math.ceil(totalCount / limit) || 1,
     },
+    }
+   
   });
 
 }
