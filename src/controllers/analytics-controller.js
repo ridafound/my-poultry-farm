@@ -81,7 +81,7 @@ const getOverview = async (req, res) => {
 
   //  build full timeline
   const dates = generateDateRange(start, end);
-  
+
   const eggsMap = Object.fromEntries(eggsRaw.map(i => [i.date, i.count]));
   const salesMap = Object.fromEntries(salesRaw.map(i => [i.date, i.revenue]));
   const expenseMap = Object.fromEntries(expenseRaw.map(i => [i.date, i.expense]));
@@ -100,7 +100,10 @@ const getOverview = async (req, res) => {
     };
   });
 
-  res.status(StatusCodes.OK).json({overview})
+  res.status(StatusCodes.OK).json({
+    success: true,
+    data: overview
+  })
 
 }
 
