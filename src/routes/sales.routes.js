@@ -1,10 +1,15 @@
 const express = require('express')
 const router = express.Router();
-const dateFilterMiddleware =require('../middleware/date-filter')
+const dateFilterMiddleware = require('../middleware/date-filter')
+const authenticationMiddleware = require('../middleware/authMiddleware');
 
-const {createSale, getSalesHistory} = require('../controllers/sales-controller');
+const { createSale, getSalesHistory } = require('../controllers/sales-controller');
 
-router.route('/create').post(createSale);
-router.route('/history').get(dateFilterMiddleware,getSalesHistory);
+router.post('/create',
+  authenticationMiddleware,
+  createSale
+);
+
+router.route('/history').get(dateFilterMiddleware, getSalesHistory);
 
 module.exports = router;

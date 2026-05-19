@@ -8,6 +8,7 @@ const expensesRoutes = require('./src/routes/expenses.routes')
 const dashboardRoutes = require('./src/routes/dashboard.routes');
 const inventoryRoutes = require('./src/routes/inventory.routes');
 const overviewRoutes = require('./src/routes/overview.routes')
+const authRoutes =  require('./src/routes/auth.routes')
 const connectDB = require('./src/config/db')
 require('dotenv').config();
 const errorHandlerMiddleware = require('./src/middleware/error-handler')
@@ -26,6 +27,7 @@ app.use('/api/v1/expenses', expensesRoutes);
 app.use('/api/v1/', dashboardRoutes);
 app.use('/api/v1/', inventoryRoutes);
 app.use('/api/v1/', overviewRoutes);
+app.use('/api/v1/auth', authRoutes)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
